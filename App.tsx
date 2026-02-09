@@ -12,6 +12,9 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import './global.css';
+import { navigationRef, setIsNavigationReady } from './src/navigation/Navigation';
+import RootNavigation from './src/navigation/navigators/RootNavigation';
+import { NavigationContainer } from '@react-navigation/native';
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
 
@@ -27,12 +30,9 @@ function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
 
   return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
+    <NavigationContainer ref={navigationRef} onReady={setIsNavigationReady}>
+      <RootNavigation />
+    </NavigationContainer>
   );
 }
 

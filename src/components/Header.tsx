@@ -1,0 +1,65 @@
+import { Pressable, StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { MainStackParamList } from '../navigation/Routes';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+
+type NavigationProp = NativeStackNavigationProp<MainStackParamList>;
+
+const Header = () => {
+  const navigation = useNavigation<NavigationProp>();
+
+  return (
+    <View className="px-4 pb-4 rounded-b-2xl">
+      <Text className="text-white text-sm">
+        Delivery starting in
+      </Text>
+
+      <View className="flex-row items-end justify-between mt-1">
+        {/* Left section */}
+        <View>
+          <Text className="text-3xl font-extrabold">
+            15 min
+          </Text>
+
+          <View className="flex-row items-center mt-1">
+            <Text className="text-white font-medium">
+              560024 - Dasarahalli
+            </Text>
+
+            <Ionicons
+              name="chevron-down-outline"
+              size={16}
+              color="#fff"
+              style={{ marginLeft: 6 }}
+            />
+          </View>
+        </View>
+
+        {/* Right icons */}
+        <View className="flex-row items-center gap-4">
+          <Pressable>
+            <Ionicons
+              name="heart-outline"
+              size={22}
+              color="#fff"
+            />
+          </Pressable>
+
+          <Pressable>
+            <Ionicons
+              name="person-outline"
+              size={22}
+              color="#fff"
+            />
+          </Pressable>
+        </View>
+      </View>
+    </View>
+  );
+};
+
+export default Header;
+
+const styles = StyleSheet.create({});

@@ -1,8 +1,5 @@
 import { NavigatorScreenParams } from "@react-navigation/native";
 
-
-
-
 export enum RootRoutes {
     AuthStack = 'AuthStack',
     MainTabs = 'MainTabs'
@@ -36,9 +33,16 @@ export type AuthStackParamList = {
     [AuthRoutes.Signup]: undefined
 }
 
+
+export type MainTabParamList = {
+    [MainRoutes.Home]:undefined;
+    [MainRoutes.Store]: undefined;
+    [MainRoutes.Cart]: undefined;
+}
+
 export type MainStackParamList = {
-    MainTabs: NavigatorScreenParams<MainStackParamList>;
-    [MainRoutes.ProductDetails]: { prductId: String };
+    MainTabs: NavigatorScreenParams<MainTabParamList>;
+    [MainRoutes.ProductDetails]: { prductId: string };
     [MainRoutes.Checkout]: undefined;
     [MainRoutes.Profile]: undefined;
     [MainRoutes.Category]: undefined;
